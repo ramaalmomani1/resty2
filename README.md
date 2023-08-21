@@ -17,4 +17,4 @@ Currently, two official plugins are available:
 
 
 URL:
-[https://main--glittering-cucurucho-04d295.netlify.app/](https://glittering-cucurucho-04d295.netlify.app/)https://glittering-cucurucho-04d295.netlify.app/
+[https://main--glittering-cucurucho-04d295.netlify.app/]
