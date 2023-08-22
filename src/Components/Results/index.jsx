@@ -1,5 +1,3 @@
-// import PropTypes from 'prop-types';
-
 import './Results.scss';
 
 function Results(props) {
@@ -13,16 +11,5 @@ function Results(props) {
 
 
 
-  // Results.propTypes = {
-  //   data: PropTypes.shape({
-  //     count: PropTypes.number,
-  //     results: PropTypes.arrayOf(
-  //       PropTypes.shape({
-  //         name: PropTypes.string,
-  //         url: PropTypes.string,
-  //       })
-  //     ),
-  //   }),
-  // };
 
 export default Results;
