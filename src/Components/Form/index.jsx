@@ -4,7 +4,7 @@ import './Form.scss';
 function Form (props) {
   
   const [method, setMethod] = useState('GET')
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
+  const [url, setUrl] = useState('')
 
   
   const handleMethodChange = (newMethod) => {
