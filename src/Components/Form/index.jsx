@@ -11,11 +11,7 @@ function Form (props) {
     setMethod(newMethod);
   };
 
-  // const handleUrlChange = (newUrl) => {
-  //   setUrl(newUrl);
-  // };
-
-
+ 
   const handleSubmit = e => {
     console.log(e)
     e.preventDefault();
@@ -24,7 +20,6 @@ function Form (props) {
       url: url,
     };
     props.handleApiCall(formData); 
-    // setUrl(url)
   }
 
   
@@ -34,12 +29,13 @@ function Form (props) {
           <label >
             <span>URL: </span>
             <input name='url' type='text' 
-           value={url} // Binding input value to the state
+           value={url} 
              onChange={(e) => setUrl(e.target.value)} 
             />
 
             <button type="submit">GO!</button>
           </label>
+            </form>
           <label className="methods">
 {/* 
             <button type="submit" onClick={() => handleSubmit(setMethod('GET'))}> GET </button>
@@ -48,19 +44,19 @@ function Form (props) {
             <button type="submit" onClick={() => handleSubmit(setMethod('DELETE'))}> DELETE </button> */}
 
 
-            <button type="submit" onClick={() => handleMethodChange('GET')}> GET </button>
-            <button type="submit" onClick={() => handleMethodChange('POST')}> POST </button>
-            <button type="submit" onClick={() => handleMethodChange('PUT')}> PUT </button>
-            <button type="submit" onClick={() => handleMethodChange('DELETE')}> DELETE </button>
-
+            <button  onClick={() => handleMethodChange('GET')}> GET </button>
+            <button  onClick={() => handleMethodChange('POST')}> POST </button>
+            <button  onClick={() => handleMethodChange('PUT')}> PUT </button>
+            <button  onClick={() => handleMethodChange('DELETE')}> DELETE </button>
 
           </label>
-        </form>
 
-        <label>Post and update</label>
-       <textarea id="myTextarea" name="comments" rows="4" cols="50" placeholder = 'Json format' >
-     
-    </textarea>
+
+        <label>Post and update
+
+       <textarea id="myTextarea" name="comments" rows="4" cols="100" placeholder = 'Json format' > </textarea>
+
+        </label>
       </>
     );
   }
