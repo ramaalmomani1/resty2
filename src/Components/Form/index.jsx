@@ -1,35 +1,65 @@
+import { useState } from 'react';
 import './Form.scss';
 
 function Form (props) {
+  
+  const [method, setMethod] = useState('GET')
+  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
 
- const handleSubmit = e => {
-    e.preventDefault();
-    const formData = {
-      method:'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    props.handleApiCall(formData); // check it later if props needed or not 
-  }
+  
+  const handleMethodChange = (newMethod) => {
+    setMethod(newMethod);
+  };
 
  
-    return (
-      <>
+  const handleSubmit = e => {
+    console.log(e)
+    e.preventDefault();
+    const formData =  {
+      method: method,
+      url: url,
+    };
+    props.handleApiCall(formData); 
+  }
+
+  
+  return (
+    <>
         <form onSubmit={handleSubmit}>
           <label >
             <span>URL: </span>
-            <input name='url' type='text' />
+            <input name='url' type='text' 
+           value={url} 
+             onChange={(e) => setUrl(e.target.value)} 
+            />
+
             <button type="submit">GO!</button>
           </label>
+            </form>
           <label className="methods">
-            <span id="get">GET</span>
-            <span id="post">POST</span>
-            <span id="put">PUT</span>
-            <span id="delete">DELETE</span>
+{/* 
+            <button type="submit" onClick={() => handleSubmit(setMethod('GET'))}> GET </button>
+            <button type="submit" onClick={() => handleSubmit(setMethod('POST'))}> POST </button>
+            <button type="submit" onClick={() => handleSubmit(setMethod('PUT'))}> PUT </button>
+            <button type="submit" onClick={() => handleSubmit(setMethod('DELETE'))}> DELETE </button> */}
+
+
+            <button  onClick={() => handleMethodChange('GET')}> GET </button>
+            <button  onClick={() => handleMethodChange('POST')}> POST </button>
+            <button  onClick={() => handleMethodChange('PUT')}> PUT </button>
+            <button  onClick={() => handleMethodChange('DELETE')}> DELETE </button>
+
           </label>
-        </form>
+
+
+        <label>Post and update
+
+       <textarea id="myTextarea" name="comments" rows="4" cols="100" placeholder = 'Json format' > </textarea>
+
+        </label>
       </>
     );
   }
-
-
-export default Form;
+  
+  
+  export default Form;
