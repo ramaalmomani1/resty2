@@ -12,7 +12,7 @@ describe("Form component", () => {
     const wrapper = render(<Form handleApiCall={handleApiCallMock} />);
 
     const urlInput = wrapper.getByLabelText("URL:");
-    const submitButton = wrapper.getByText("GO!");
+    const submitButton = wrapper.getByText("GO !");
 
     fireEvent.change(urlInput, { target: { value: "https://example.com" } });
     fireEvent.click(submitButton);

@@ -31,7 +31,7 @@ function Form(props) {
             onChange={(e) => setUrl(e.target.value)}
           />
 
-          <button className = 'go-button' type="submit">GO !</button>
+          <button type="submit">GO !</button>
         </label>
       </form>
 
@@ -45,7 +45,7 @@ function Form(props) {
         >
          
         </textarea>
-        
+
       <label className="methods">
         {/* 
             <button type="submit" onClick={() => handleSubmit(setMethod('GET'))}> GET </button>
