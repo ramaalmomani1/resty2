@@ -31,9 +31,21 @@ function Form(props) {
             onChange={(e) => setUrl(e.target.value)}
           />
 
-          <button type="submit">GO!</button>
+          <button type="submit">GO !</button>
         </label>
       </form>
+
+      
+      <textarea
+          id="myTextarea"
+          name="comments"
+          rows="4"
+          cols="100"
+          placeholder="Only Json format"
+        >
+         
+        </textarea>
+
       <label className="methods">
         {/* 
             <button type="submit" onClick={() => handleSubmit(setMethod('GET'))}> GET </button>
@@ -47,18 +59,8 @@ function Form(props) {
         <button onClick={() => handleMethodChange("DELETE")}> DELETE </button>
       </label>
 
-      <label>
-        Post and update
-        <textarea
-          id="myTextarea"
-          name="comments"
-          rows="4"
-          cols="100"
-          placeholder="Json format"
-        >
-          {" "}
-        </textarea>
-      </label>
+    
+      
     </>
   );
 }
