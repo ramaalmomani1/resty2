@@ -18,3 +18,6 @@ Currently, two official plugins are available:
 
 URL:
 [https://main--glittering-cucurucho-04d295.netlify.app/]
+
+sandbox URL: 
+https://94n2vp-5173.csb.app/
