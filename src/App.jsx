@@ -8,9 +8,9 @@ import Results from "./Components/Results";
 import axios from "axios";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({ headers: null, results: null });
 
-  const [requestParams, setRequestParams] = useState(null);
+  const [requestParams, setRequestParams] = useState({});
   const [loading, setLoading] = useState(false);
 
   const callApi = (requestParams) => {
@@ -19,7 +19,7 @@ function App() {
       .get(requestParams.url)
       .then((response) => {
         console.log("data", response);
-        setData( response);
+        setData({ headers: response.headers, results: response.data });
 
         setLoading(false);
       })

@@ -2,7 +2,7 @@ import "./Results.scss";
 import JSONPretty from "react-json-prettify";
 
 function Results(props) {
- 
+  console.log('nsdgnjsd',props.data)
   return (
     
     <section>
@@ -10,19 +10,19 @@ function Results(props) {
         <div>Loading...</div>
       ) : (
         <pre>
-         
+          {props.data.headers !== null && (
             <div>
               <h3>Headers:</h3>
-              <JSONPretty json={props.data.data} />
+              <JSONPretty json={props.data.headers} />
             </div>
-     
+          )}
 
-          
+          {props.data.results !== null && (
             <div>
               <h3>Results:</h3>
               <JSONPretty json={props.data.results} />
             </div>
-         
+          )}
         </pre>
       )}
     </section>
