@@ -1,155 +1,132 @@
 $backgroundColor: #efefef;
 $radius: 40%;
 
+$white: rgba(255, 255, 255, 0.3);
 
-  $white: rgba(255,255,255,0.3);
-  
-  form {
-    display: inline-block;
-    margin: auto;
-    // width: 200px;
-    background: $white;
-    padding: 3em;
-    height: 100px;
-    border-radius: 20px;
+form {
+  display: inline-block;
+  margin: auto;
+  // width: 200px;
+  background: $white;
+  padding: 3em;
+  height: 100px;
+  border-radius: 20px;
+  border-left: 1px solid $white;
+  border-top: 1px solid $white;
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  // transition: all 0.2s ease-in-out;
+
+  input {
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
     border-left: 1px solid $white;
     border-top: 1px solid $white;
-    backdrop-filter: blur(10px);
-    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
-    text-align: center;
-    position: relative;
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
     // transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
- 
-    
-    input {
-      background: transparent;
-      width: 200px;
-      padding: 1em;
-      margin-bottom: 2em;
-      border: none;
-      border-left: 1px solid $white;
-      border-top: 1px solid $white;
-      border-radius: 5000px;
-      backdrop-filter: blur(5px);
-      box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
-      color: #fff;
-      font-family: Montserrat, sans-serif;
-      font-weight: 500;
-      // transition: all 0.2s ease-in-out;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      
-      &:hover {
-        background: rgba(255,255,255,0.1);
-        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-      }
-      
-      &[type="email"],
-      &[type="password"] {
-        
-        &:focus {
-          background: rgba(255,255,255,0.1);
-          box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
-        }
-      }
-      
-      &[type="button"] {
-        margin-top: 10px;
-        width: 150px;
-        font-size: 1rem;
-        
-        // &:hover {
-        //   cursor: pointer;
-        // }
-        
-        &:active {
-          background: rgba(255,255,255,0.2);
-        }
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &[type="email"],
+    &[type="password"] {
+      &:focus {
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
       }
     }
-    
-   
+
+    &[type="button"] {
+      margin-top: 10px;
+      width: 150px;
+      font-size: 1rem;
+
+      // &:hover {
+      //   cursor: pointer;
+      // }
+
+      &:active {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
   }
-  
-  
-  
-  label {
-    display: flex;
-    margin: 1rem 0;
-    display: inline-block;
-    margin: auto;
-   
+}
+
+label {
+  display: flex;
+  margin: 1rem 0;
+  display: inline-block;
+  margin: auto;
+}
+
+span {
+  font-family: verdana;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+input {
+  margin-top: 15px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+button {
+  gap: 20px;
+  background: linear-gradient(#9be8d8, #fae392);
+
+  width: 150px;
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+
+  &:hover,
+  &.active {
+    space-between: 20;
+    background: #0b666a;
+    color: whitesmoke;
+    transition: 0.4s;
   }
- 
-    span{
-      font-family: verdana;
-      font-weight: bold;
-      padding-top: 5px;
-    }
+}
 
-    input{
-      margin-top: 15px;
-      border-radius: 5px;
-      height: 30px; 
-    }
-
-
-
-    button{
-
-          gap: 20px;
-          background: linear-gradient( #9BE8D8, #FAE392);
-          // margin-top: 10px;
-          width: 150px;
-          // font-size: 1rem;
-          border: 0;
-          border-radius: 12px;
-          color: #FFFFFF;
-          cursor: pointer;
-          // display: inline-block;
-          font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 2.5;
-          // outline: transparent;
-          padding: 0 1rem;
-          text-align: center;
-          text-decoration: none;
-          transition: box-shadow .2s ease-in-out;
-          user-select: none;
-          -webkit-user-select: none;
-          touch-action: manipulation;
-          white-space: nowrap;
-
-          &:hover, &.active {
-         
-            background:#0B666A;
-            color: whitesmoke;
-            transition: 0.4s;
-  
-          }
-        }
-       
-        textarea{
-         font-size: 30px; 
-         font-family: 'Signika', sans-serif;
-          padding-bottom: 10px; 
-         color: black;
-        //  margin-top: 15px;
-         border-radius: 10px;
-         height: 10%; 
-         width: 90%;
-         margin-left: 5%;
-         justify-content: center;
-         align-items: center;
-        //  text-align: center;
-        }
-      
-
-
-
-
-
-
-
-
+textarea {
+  font-size: 30px;
+  font-family: "Signika", sans-serif;
+  padding-bottom: 10px;
+  color: black;
+  //  margin-top: 15px;
+  border-radius: 10px;
+  height: 10%;
+  width: 90%;
+  margin-left: 5%;
+  justify-content: center;
+  align-items: center;
+  //  text-align: center;
+}
