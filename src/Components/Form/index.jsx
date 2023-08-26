@@ -35,32 +35,20 @@ function Form(props) {
         </label>
       </form>
 
-      
       <textarea
-          id="myTextarea"
-          name="comments"
-          rows="4"
-          cols="100"
-          placeholder="Only Json format"
-        >
-         
-        </textarea>
+        id="myTextarea"
+        name="comments"
+        rows="4"
+        cols="100"
+        placeholder="Only Json format"
+      ></textarea>
 
-      <label className="methods">
-        {/* 
-            <button type="submit" onClick={() => handleSubmit(setMethod('GET'))}> GET </button>
-            <button type="submit" onClick={() => handleSubmit(setMethod('POST'))}> POST </button>
-            <button type="submit" onClick={() => handleSubmit(setMethod('PUT'))}> PUT </button>
-            <button type="submit" onClick={() => handleSubmit(setMethod('DELETE'))}> DELETE </button> */}
-
+      <label className="button-container">
         <button onClick={() => handleMethodChange("GET")}> GET </button>
         <button onClick={() => handleMethodChange("POST")}> POST </button>
         <button onClick={() => handleMethodChange("PUT")}> PUT </button>
         <button onClick={() => handleMethodChange("DELETE")}> DELETE </button>
       </label>
-
-    
-      
     </>
   );
 }

@@ -1,20 +1,17 @@
-$white: rgba(255,255,255,0.3);
-
+$white: rgba(255, 255, 255, 0.3);
 
 section {
-    background-color: #ddd;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px 0;
-    box-shadow: 0px 0px 5px #ddd;
-  
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0px 0px 5px #ddd;
+
   pre {
-      overflow-x: auto; 
-      white-space: pre-wrap; 
-      font-size: 14px; 
-      color: black; 
-    }
+    overflow-x: auto;
+    white-space: pre-wrap;
+    font-size: 14px;
+    color: black;
   }
-
-
+}

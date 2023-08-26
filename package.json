@@ -17,11 +17,12 @@
     "axios": "^1.4.0",
     "jest": "^29.6.3",
     "jsdom": "^22.1.0",
+    "jsoneditor-react": "^3.1.2",
     "list": "^2.0.19",
     "npm": "^9.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-spinners": "^0.13.8",
+    "react-json-prettify": "^0.2.0",
     "sass": "^1.66.1",
     "vitest": "^0.34.2"
   },

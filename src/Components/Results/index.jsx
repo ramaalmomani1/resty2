@@ -1,4 +1,5 @@
 import "./Results.scss";
+import JSONPretty from "react-json-prettify";
 
 function Results(props) {
   return (
@@ -7,7 +8,19 @@ function Results(props) {
         <div>Loading...</div>
       ) : (
         <pre>
-          {props.data ? JSON.stringify(props.data, undefined, 2) : null}
+          {props.data.headers !== null && (
+            <div>
+              <h3>Headers:</h3>
+              <JSONPretty json={props.data.headers} />
+            </div>
+          )}
+
+          {props.data.results !== null && (
+            <div>
+              <h3>Results:</h3>
+              <JSONPretty json={props.data.results} />
+            </div>
+          )}
         </pre>
       )}
     </section>

@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './App.scss';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Form from './Components/Form';
-import Results from './Components/Results';
-import axios from 'axios';
+import "./App.scss";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Form from "./Components/Form";
+import Results from "./Components/Results";
+import axios from "axios";
 
 function App() {
+  const [data, setData] = useState({ headers: null, results: null });
 
-  const [data, setData] = useState(null)
-  const [requestParams, setRequestParams] = useState({})
+  const [requestParams, setRequestParams] = useState({});
   const [loading, setLoading] = useState(false);
 
-
-
   const callApi = (requestParams) => {
-
     setLoading(true);
-    axios.get(requestParams.url)
-      .then(response => {
-        console.log('Data:', response.data);
-        setData(response.data)
+    axios
+      .get(requestParams.url)
+      .then((response) => {
+        console.log("data", response);
+        setData({ headers: response.headers, results: response.data });
 
         setLoading(false);
       })
-      .catch(error => {
-        console.error('Error:', error);
+      .catch((error) => {
+        console.error("Error:", error);
       });
-    setRequestParams(requestParams)
-  }
-
+    setRequestParams(requestParams);
+  };
 
   return (
     <React.Fragment>
@@ -41,11 +38,7 @@ function App() {
       <Results data={data} loading={loading} />
       <Footer />
     </React.Fragment>
-
   );
 }
 
-
 export default App;
-
-
