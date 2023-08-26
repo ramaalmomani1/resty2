@@ -2,25 +2,27 @@ import "./Results.scss";
 import JSONPretty from "react-json-prettify";
 
 function Results(props) {
+ 
   return (
+    
     <section>
       {props.loading ? (
         <div>Loading...</div>
       ) : (
         <pre>
-          {props.data.headers !== null && (
+         
             <div>
               <h3>Headers:</h3>
-              <JSONPretty json={props.data.headers} />
+              <JSONPretty json={props.data.data} />
             </div>
-          )}
+     
 
-          {props.data.results !== null && (
+          
             <div>
               <h3>Results:</h3>
               <JSONPretty json={props.data.results} />
             </div>
-          )}
+         
         </pre>
       )}
     </section>
