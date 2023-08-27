@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 
 import "./App.scss";
 import Header from "./Components/Header";
@@ -14,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const callApi = (requestParams) => {
+    setRequestParams(requestParams);
     setLoading(true);
     axios
       .get(requestParams.url)
@@ -26,8 +27,12 @@ function App() {
       .catch((error) => {
         console.error("Error:", error);
       });
-    setRequestParams(requestParams);
   };
+
+//   useEffect(() => {
+//     callApi(requestParams);
+//     setLoading(false)
+// }, [requestParams]);
 
   return (
     <React.Fragment>
@@ -35,7 +40,7 @@ function App() {
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
       <Form handleApiCall={callApi} />
-      <Results data={data} loading={loading} />
+      <Results data={data} loading={loading}  handleApiCall={callApi} />
       <Footer />
     </React.Fragment>
   );
