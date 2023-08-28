@@ -1,10 +1,8 @@
-// Form.test.js
 import { test, expect, describe, beforeAll, afterEach, afterAll } from 'vitest';
-// import { screen, fireEvent,render } from '@testing-library/react';
+import fetch from 'node-fetch';
 import '@testing-library/jest-dom';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-// import App from '../src/App'; 
 
 describe('Form component', () => {
   const server = setupServer(
@@ -31,8 +29,5 @@ describe('Form component', () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
     expect(response.status).toBe(200);
   });
-
-  
-    
 });
 
