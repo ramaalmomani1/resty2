@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./App.scss";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -12,11 +12,10 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initState);
 
   // const [data, setData] = useState({ headers: null, results: null });
-
   // const [requestParams, setRequestParams] = useState({});
   // const [loading, setLoading] = useState(false);
-  const [history, setHistory] = useState([]);
-  const [rendetHistory, setRendetHistory] = useState(false);
+  // const [history, setHistory] = useState([]);
+  // const [rendetHistory, setRendetHistory] = useState(false);
 
   const callApi = (requestParams) => {
     dispatch({ type: actionType.REQUEST_PARAMS, payload: requestParams });
@@ -41,9 +40,15 @@ function App() {
             payload: { headers: response.headers, results: response.data },
           });
 
-          setHistory([response]);
-          //  setHistory([{ headers: response.headers, results: response.data }]);
-          setRendetHistory(true);
+          dispatch({
+            type: actionType.HISTORY,
+            payload: response,
+          });
+
+          // setHistory((History) => [...History, response]);
+          dispatch({ type: actionType.RENDERHIS, payload: true });
+
+          // setRendetHistory(true);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -72,10 +77,10 @@ function App() {
       />
 
       <History
-        history={history}
+        history={state.history}
         method={state.requestParams.method}
         url={state.requestParams.url}
-        rendetHistory={rendetHistory}
+        renderHistory={state.renderHis}
       />
 
       <Footer />

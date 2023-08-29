@@ -1,63 +1,29 @@
-// import "./History.scss";
-// import JSONPretty from "react-json-prettify";
-
-// function History({ history, method, url, rendetHistory }) {
-
-//   console.log(history, 'this is from history')
-
-//   const { headers, results } = history[0] || {};
-//   return (
-//     <section>
-//       {rendetHistory === true && (
-//         <div>
-         
-//           <h2>History</h2>
-
-//           <div>Request Method: {method}</div>
-//           <div>URL: {url}</div>
-
-//           <div>
-//             <h3>Headers:</h3>
-//             <JSONPretty json={history} />
-//           </div>
-
-//           <div>
-//             <h3>Results:</h3>
-//             <JSONPretty json={history} />
-//           </div>
-//         </div>
-//       )}
-//     </section>
-//   );
-// }
-
-// export default History;
-
 import "./History.scss";
 import JSONPretty from "react-json-prettify";
 
-function History({ history, method, url, rendetHistory }) {
-  console.log(history, 'this is from history');
-  
-  const { headers, data } = history[0] || {}; 
-
+function History({ history, method, url, renderHistory }) {
   return (
     <section>
-      {rendetHistory === true && (
+      {renderHistory === true && (
         <div>
           <h2>History</h2>
-          <div>Request Method: {method}</div>
-          <div>URL: {url}</div>
-          
-          <div>
-            <h3>Headers:</h3>
-            <JSONPretty json={headers} />
-          </div>
+          {history.map((item, index) => (
+            <div key={index}>
+              <h3>Request {index + 1}</h3>
 
-          <div>
-            <h3>Results:</h3>
-            <JSONPretty json={data} />
-          </div>
+              <div>Request Method: {method}</div>
+              <div>URL: {url}</div>
+
+              <div>
+                <h4>Headers:</h4>
+                <JSONPretty json={item.headers} />
+              </div>
+              <div>
+                <h4>Results:</h4>
+                <JSONPretty json={item.data} />
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </section>
@@ -65,3 +31,4 @@ function History({ history, method, url, rendetHistory }) {
 }
 
 export default History;
+
