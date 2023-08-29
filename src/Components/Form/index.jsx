@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import "./Form.scss";
+import { formInitState, formActionType, reducer } from "../../reducers/actions";
 
 function Form(props) {
-  const [method, setMethod] = useState("GET");
-  const [url, setUrl] = useState("");
+  const [state, dispatch] = useReducer(reducer, formInitState);
+
+  // const [method, setMethod] = useState("GET");
+  // const [url, setUrl] = useState("");
 
   const handleMethodChange = (newMethod) => {
-    setMethod(newMethod);
+    dispatch({ type: formActionType.METHOD, payload: newMethod });
+
+    // setMethod(newMethod);
   };
 
   const handleSubmit = (e) => {
     console.log(e);
     e.preventDefault();
     const formData = {
-      method: method,
-      url: url,
+      method: state.method,
+      url: state.url,
     };
     props.handleApiCall(formData);
   };
@@ -27,8 +32,8 @@ function Form(props) {
           <input
             name="url"
             type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+            value={state.url}
+            onChange={(e) =>    dispatch({ type: formActionType.URL, payload: e.target.value })}
           />
 
           <button type="submit">GO !</button>
