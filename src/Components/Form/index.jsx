@@ -5,7 +5,7 @@ import { formInitState, formActionType, reducer } from "../../reducers/actions";
 function Form(props) {
   const [state, dispatch] = useReducer(reducer, formInitState);
 
-  // const [method, setMethod] = useState("GET");
+    // const [method, setMethod] = useState("GET");
   // const [url, setUrl] = useState("");
 
   const handleMethodChange = (newMethod) => {
