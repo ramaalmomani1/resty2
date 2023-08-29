@@ -5,17 +5,17 @@ import Footer from "./Components/Footer";
 import Form from "./Components/Form";
 import Results from "./Components/Results";
 import axios from "axios";
-// import History from "./Components/History/History";
+import History from "./Components/History/History";
 import { initState, actionType, reducer } from "./reducers/actions";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initState);
 
   // const [data, setData] = useState({ headers: null, results: null });
-
   // const [requestParams, setRequestParams] = useState({});
   // const [loading, setLoading] = useState(false);
-  // const [history, setHistory] = useState ('')
+  // const [history, setHistory] = useState([]);
+  // const [rendetHistory, setRendetHistory] = useState(false);
 
   const callApi = (requestParams) => {
     dispatch({ type: actionType.REQUEST_PARAMS, payload: requestParams });
@@ -39,6 +39,16 @@ function App() {
             type: actionType.DATA,
             payload: { headers: response.headers, results: response.data },
           });
+
+          dispatch({
+            type: actionType.HISTORY,
+            payload: response,
+          });
+
+          // setHistory((History) => [...History, response]);
+          dispatch({ type: actionType.RENDERHIS, payload: true });
+
+          // setRendetHistory(true);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -66,7 +76,12 @@ function App() {
         }
       />
 
-      {/* <History /> */}
+      <History
+        history={state.history}
+        method={state.requestParams.method}
+        url={state.requestParams.url}
+        renderHistory={state.renderHis}
+      />
 
       <Footer />
     </React.Fragment>

@@ -2,12 +2,16 @@ export const initState = {
   data: { headers: null, results: null },
   requestParams: {},
   loading: false,
+  history: [],
+  renderHis: false,
 };
 
 export const actionType = {
   LOADING: "LOADING",
   REQUEST_PARAMS: "REQUEST_PARAMS",
   DATA: "DATA",
+  HISTORY: "HISTORY",
+  RENDERHIS: "RENDERHIS"
 };
 
 /////////////////////// FORM
@@ -41,6 +45,18 @@ export function reducer(state, action) {
         ...state,
         data: action.payload,
       };
+    case actionType.HISTORY:
+      return {
+        ...state,
+        history: [...state.history, action.payload],
+      };
+      case actionType.RENDERHIS:
+        return {
+          ...state,
+          renderHis: action.payload,
+        };
+
+    //////////FORM
     case formActionType.METHOD:
       return {
         ...state,
@@ -51,6 +67,7 @@ export function reducer(state, action) {
         ...state,
         url: action.payload,
       };
+
     default:
       return state;
   }
