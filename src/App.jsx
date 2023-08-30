@@ -78,9 +78,8 @@ function App() {
 
       <History
         history={state.history}
-        method={state.requestParams.method}
-        url={state.requestParams.url}
         renderHistory={state.renderHis}
+        dispatch={dispatch}
       />
 
       <Footer />
