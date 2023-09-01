@@ -7,6 +7,7 @@ import Results from "./Components/Results";
 import axios from "axios";
 import History from "./Components/History/History";
 import { initState, actionType, reducer } from "./reducers/actions";
+import { Link } from "react-scroll";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initState);
@@ -65,9 +66,17 @@ function App() {
       <Header />
       <div>Request Method: {state.requestParams.method}</div>
       <div>URL: {state.requestParams.url}</div>
+      {state.renderHis === true && (
+        <button className="scroll">
+          <Link to="History" spy={true} smooth={true}>
+            History
+          </Link>{" "}
+        </button>
+      )}
       <Form handleApiCall={callApi} dispatch={dispatch} />
 
       <Results
+        id="scrollUp"
         data={state.data}
         loading={state.loading}
         handleApiCall={callApi}
@@ -80,6 +89,9 @@ function App() {
         history={state.history}
         renderHistory={state.renderHis}
         dispatch={dispatch}
+        updateUrl={(newUrl) =>
+          callApi({ method: state.requestParams.method, url: newUrl })
+        }
       />
 
       <Footer />
