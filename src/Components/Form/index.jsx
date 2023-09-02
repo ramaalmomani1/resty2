@@ -5,7 +5,7 @@ import { formInitState, formActionType, reducer } from "../../reducers/actions";
 function Form(props) {
   const [state, dispatch] = useReducer(reducer, formInitState);
 
-    // const [method, setMethod] = useState("GET");
+  // const [method, setMethod] = useState("GET");
   // const [url, setUrl] = useState("");
 
   const handleMethodChange = (newMethod) => {
@@ -33,20 +33,24 @@ function Form(props) {
             name="url"
             type="text"
             value={state.url}
-            onChange={(e) =>    dispatch({ type: formActionType.URL, payload: e.target.value })}
+            onChange={(e) =>
+              dispatch({ type: formActionType.URL, payload: e.target.value })
+            }
           />
 
           <button type="submit">GO !</button>
         </label>
       </form>
 
-      <textarea
-        id="myTextarea"
-        name="comments"
-        rows="4"
-        cols="100"
-        placeholder="Only Json format"
-      ></textarea>
+      <div>
+        <textarea
+          id="myTextarea"
+          name="comments"
+          rows="4"
+          cols="100"
+          placeholder="Only Json format"
+        ></textarea>{" "}
+      </div>
 
       <label className="button-container">
         <button onClick={() => handleMethodChange("GET")}> GET </button>

@@ -18,7 +18,7 @@ function Results(props) {
   // };
 
   return (
-    <section>
+    <section id = 'scrollUp'>
       {props.loading ? (
         <div>Loading...</div>
       ) : (

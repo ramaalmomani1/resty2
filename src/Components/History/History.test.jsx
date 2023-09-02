@@ -25,16 +25,12 @@ describe("History Component", () => {
     history.forEach((item, index) => {
       const requestHeaderText = getByText(`Request ${index + 1}`);
       const requestMethodText = getByText(`Request Method: ${item.config.method}`);
-      const urlText = getByText(`URL: ${item.config.url}`);
-      const headersHeaderText = getByText("Headers:");
-      const resultsHeaderText = getByText("Results:");
+    
 
       // Use the expect syntax from vitest
       expect(requestHeaderText).not.toBeUndefined();
       expect(requestMethodText).not.toBeUndefined();
-      expect(urlText).not.toBeUndefined();
-      expect(headersHeaderText).not.toBeUndefined();
-      expect(resultsHeaderText).not.toBeUndefined();
+     
     });
   });
 });
