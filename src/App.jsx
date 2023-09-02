@@ -67,11 +67,13 @@ function App() {
       <div>Request Method: {state.requestParams.method}</div>
       <div>URL: {state.requestParams.url}</div>
       {state.renderHis === true && (
-        <button className="scroll">
+        <div>
           <Link to="History" spy={true} smooth={true}>
+        <button className="scroll">
             History
-          </Link>{" "}
         </button>
+          </Link>{" "}
+        </div>
       )}
       <Form handleApiCall={callApi} dispatch={dispatch} />
 
